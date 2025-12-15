@@ -34,15 +34,49 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
 
+Step-by-Step Procedure
+
+Start
+
+Detect active clock edge (positive or negative, depending on design)
+
+Check inputs J and K
+
+Update output Q based on conditions
+
+End
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+ Program for flipflops and verify its truth table in quartus using Verilog programming.
+```
+module jk(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q,qbar;
+initial 
+begin
+q=1'b0;
+q=1'b1;
+end 
+
+always @(posedge clk)
+begin 
+q<=(j&~q)|(~k&q);
+qbar<=~q;
+end
+endmodule
+```
+ Developed by: SRI RAM M 
+ RegisterNumber: 25013604
+
 
 **RTL LOGIC FOR FLIPFLOPS**
 
+<img width="1767" height="842" alt="image" src="https://github.com/user-attachments/assets/a5df0237-a2e9-470f-9ca8-6053ecfcaa09" />
+
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1915" height="972" alt="image" src="https://github.com/user-attachments/assets/fe75e4be-9c85-4834-944b-21721ddaf287" />
 
 **RESULTS**
+
+Thus the above program has been verified and executed successfully
